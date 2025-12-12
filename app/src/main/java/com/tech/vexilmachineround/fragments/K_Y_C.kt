@@ -38,7 +38,7 @@ class K_Y_C : Fragment() {
 
     private fun observeUIState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED){
+            repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.sampleResponseData.collect { result ->
                     when(result){
                         is ApiResult.Success ->{
@@ -85,5 +85,10 @@ class K_Y_C : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

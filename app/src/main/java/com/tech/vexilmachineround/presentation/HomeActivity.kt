@@ -26,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
     @Inject
     lateinit var pagerAdapter: HomePagerAdapter
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)

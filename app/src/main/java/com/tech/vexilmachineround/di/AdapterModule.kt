@@ -2,6 +2,7 @@ package com.tech.vexilmachineround.di
 
 import android.app.Activity
 import com.tech.vexilmachineround.adapter.HomePagerAdapter
+import com.tech.vexilmachineround.adapter.InspectionAdapter
 import com.tech.vexilmachineround.presentation.HomeActivity
 import dagger.Module
 import dagger.Provides
@@ -17,5 +18,11 @@ class AdapterModule {
     @Provides
     fun provideHomePagerAdapter(activity: Activity): HomePagerAdapter {
         return HomePagerAdapter(activity as HomeActivity)
+    }
+
+    @ActivityScoped
+    @Provides
+    fun provideInspectionAdapter(): InspectionAdapter{
+        return InspectionAdapter()
     }
 }
