@@ -17,7 +17,6 @@ import java.io.IOException
 import java.util.Locale
 
 class InspectionAdapter : RecyclerView.Adapter<InspectionAdapter.InspectionViewHolder>() {
-
     private var images: List<Image> = emptyList()
 
     override fun onCreateViewHolder(
