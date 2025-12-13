@@ -20,16 +20,11 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class Documents : Fragment() {
-
     private var _binding: FragmentDocumentsBinding? = null
     private val binding: FragmentDocumentsBinding get() = _binding!!
-
     private val viewModel: JsonViewModel by activityViewModels()
-
     @Inject
-
     lateinit var documentAdapter: DocumentAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

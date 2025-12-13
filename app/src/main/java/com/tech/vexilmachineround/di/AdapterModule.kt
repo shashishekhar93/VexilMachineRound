@@ -1,6 +1,7 @@
 package com.tech.vexilmachineround.di
 
 import android.app.Activity
+import com.tech.vexilmachineround.adapter.AuditTrailAdapter
 import com.tech.vexilmachineround.adapter.CoApplicantAdapter
 import com.tech.vexilmachineround.adapter.DocumentAdapter
 import com.tech.vexilmachineround.adapter.EmiAdapter
@@ -59,5 +60,11 @@ class AdapterModule {
     @Provides
     fun provideDocumentAdapterModule(): DocumentAdapter {
         return DocumentAdapter()
+    }
+
+    @ActivityScoped
+    @Provides
+    fun provideAuditTrailAdapterModule(): AuditTrailAdapter {
+        return AuditTrailAdapter()
     }
 }
