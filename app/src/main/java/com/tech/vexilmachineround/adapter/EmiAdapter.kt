@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tech.vexilmachineround.R
+import com.tech.vexilmachineround.databinding.ItemEmiBinding
 import com.tech.vexilmachineround.model.Emi
 
 class EmiAdapter : RecyclerView.Adapter<EmiAdapter.EmiViewHolder>() {
@@ -20,8 +21,8 @@ class EmiAdapter : RecyclerView.Adapter<EmiAdapter.EmiViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmiViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_emi, parent, false)
-        return EmiViewHolder(view)
+        val binding = ItemEmiBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return EmiViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: EmiViewHolder, position: Int) {
@@ -31,15 +32,11 @@ class EmiAdapter : RecyclerView.Adapter<EmiAdapter.EmiViewHolder>() {
 
     override fun getItemCount(): Int = emis.size
 
-    inner class EmiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val schedule: TextView = itemView.findViewById(R.id.tvEmiSchedule)
-        private val amount: TextView = itemView.findViewById(R.id.tvEmiAmount)
-        private val status: TextView = itemView.findViewById(R.id.tvEmiStatus)
-
+    inner class EmiViewHolder(private val binding: ItemEmiBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(emi: Emi) {
-            schedule.text = emi.schedule
-            amount.text = "₹${emi.amount}"
-            status.text = emi.status
+            binding.tvEmiSchedule.text = emi.schedule
+            binding.tvEmiAmount.text = "₹${emi.amount}"
+            binding.tvEmiStatus.text = emi.status
         }
     }
 }
