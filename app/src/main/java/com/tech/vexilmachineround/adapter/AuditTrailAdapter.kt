@@ -9,10 +9,8 @@ import com.tech.vexilmachineround.databinding.ItemAuditTrailBinding
 import com.tech.vexilmachineround.model.AuditTrail
 import com.tech.vexilmachineround.model.Document
 
-class AuditTrailAdapter() : RecyclerView.Adapter<AuditTrailAdapter.ViewHolder>() {
-
+class AuditTrailAdapter : RecyclerView.Adapter<AuditTrailAdapter.ViewHolder>() {
     private var trailList: List<AuditTrail> = emptyList()
-
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: List<AuditTrail>) {

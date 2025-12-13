@@ -60,6 +60,8 @@ dependencies {
     implementation(libs.androidx.cardview)
     kapt(libs.hilt.compiler)
 
+    implementation("org.jsoup:jsoup:1.18.1")
+
     implementation("androidx.fragment:fragment-ktx:1.8.9")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
