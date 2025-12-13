@@ -2,6 +2,7 @@ package com.tech.vexilmachineround.di
 
 import android.app.Activity
 import com.tech.vexilmachineround.adapter.CoApplicantAdapter
+import com.tech.vexilmachineround.adapter.DocumentAdapter
 import com.tech.vexilmachineround.adapter.EmiAdapter
 import com.tech.vexilmachineround.adapter.GuarantorAdapter
 import com.tech.vexilmachineround.adapter.HomePagerAdapter
@@ -52,5 +53,11 @@ class AdapterModule {
     @Provides
     fun provideReferenceContactAdapter(): ReferenceContactAdapter{
         return ReferenceContactAdapter()
+    }
+
+    @ActivityScoped
+    @Provides
+    fun provideDocumentAdapterModule(): DocumentAdapter {
+        return DocumentAdapter()
     }
 }
