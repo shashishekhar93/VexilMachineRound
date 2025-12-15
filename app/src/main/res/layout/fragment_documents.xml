@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ultra_light_gray_background"
     tools:context=".fragments.Documents">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="12dp"
         android:id="@+id/rv_document"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
