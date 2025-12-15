@@ -16,7 +16,7 @@
             android:id="@+id/loanDetailsCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             app:cardCornerRadius="8dp"
             app:cardBackgroundColor="#1A6200EE"
             app:layout_constraintTop_toTopOf="parent"
