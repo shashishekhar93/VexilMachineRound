@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_gray_background"
     tools:context=".fragments.LoanSummary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +18,7 @@
             android:layout_height="wrap_content"
             app:cardElevation="4dp"
             app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#1A6200EE"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -24,13 +26,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="12dp">
 
                 <TextView
                     android:id="@+id/tvLoanProduct"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                    android:textColor="@color/purple_700"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tvStatus"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +87,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-                    android:textColor="?attr/colorPrimary"
+                    android:textColor="@color/purple_700"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/labelAmountRequested"
                     app:layout_constraintBottom_toBottomOf="@id/labelAmountRequested" />
@@ -152,6 +157,7 @@
             android:layout_height="wrap_content"
             android:text="EMIs"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@color/purple_700"
             android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/loanDetailsCard" />
@@ -173,6 +179,7 @@
             android:layout_height="wrap_content"
             android:text="Co-Applicants"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@color/purple_700"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvEmis" />
@@ -194,6 +201,7 @@
             android:layout_height="wrap_content"
             android:text="Guarantors"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@color/purple_700"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvCoApplicants" />
@@ -215,6 +223,7 @@
             android:layout_height="wrap_content"
             android:text="References"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@color/purple_700"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvGuarantors" />

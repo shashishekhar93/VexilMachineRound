@@ -9,7 +9,7 @@
         android:id="@+id/timeline_line_top"
         android:layout_width="2dp"
         android:layout_height="0dp"
-        android:background="?colorPrimary"
+        android:background="@color/purple_500"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/timeline_dot"
         app:layout_constraintStart_toStartOf="@+id/timeline_dot"
@@ -24,13 +24,13 @@
         app:layout_constraintTop_toTopOf="@+id/card"
         app:layout_constraintBottom_toBottomOf="@+id/card"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="?colorPrimary" />
+        app:tint="@color/purple_700" />
 
     <View
         android:id="@+id/timeline_line_bottom"
         android:layout_width="2dp"
         android:layout_height="0dp"
-        android:background="?colorPrimary"
+        android:background="@color/purple_500"
         app:layout_constraintTop_toBottomOf="@+id/timeline_dot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/timeline_dot"
@@ -45,6 +45,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:cardElevation="4dp"
+        app:cardBackgroundColor="#26BB86FC"
         app:layout_constraintStart_toEndOf="@+id/timeline_dot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/purple_700"
                 tools:text="Action: NA" />
 
             <TextView
