@@ -56,7 +56,10 @@ This codebase demonstrates a strong understanding of modern Android development 
 - **Redundant ViewModel Factory**: `JsonViewModelFactory` is not needed when using `@HiltViewModel`. It can be safely deleted.
 - **Hardcoded Strings**: Moving strings from adapter classes into `strings.xml` will improve maintainability and allow for internationalization.
 
-## How to Build
+## Images:
+<img width="1080" height="2400" alt="Screenshot_20251215_120245" src="https://github.com/user-attachments/assets/6212be72-0f6c-47f2-b5b7-4019942a1f98" />
+<img width="1080" height="2400" alt="Screenshot_20251215_120154" src="https://github.com/user-attachments/assets/615d3bcd-4918-4f00-93a6-44ae335dc2cc" />
+
 
 1.  Clone the repository.
 2.  Open the project in Android Studio.
