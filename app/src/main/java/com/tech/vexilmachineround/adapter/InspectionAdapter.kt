@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.tech.vexilmachineround.R
 import com.tech.vexilmachineround.databinding.ItemInspectionImageBinding
 import com.tech.vexilmachineround.model.Image
+import com.tech.vexilmachineround.utils.AppUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -55,10 +56,17 @@ class InspectionAdapter : RecyclerView.Adapter<InspectionAdapter.InspectionViewH
         fun bind(image: Image) {
             binding.tvImageTitleLabel.text = image.title
             binding.tvCapturedAtLabel.text = image.capturedAt
-            Glide.with(binding.root)
+
+            AppUtils.ImageUtils.loadIbbCoImage(
+                context = binding.root.context,
+                imageView = binding.ivInspectionImage,
+                galleryUrl = image.fileUrl
+            )
+
+            /*Glide.with(binding.root)
                 .load(image.fileUrl)
                 .placeholder(R.drawable.ic_placeholder)
-                .into(binding.ivInspectionImage)
+                .into(binding.ivInspectionImage)*/
 
             binding.tvPlaceLabel.text = "Fetching location..."
 

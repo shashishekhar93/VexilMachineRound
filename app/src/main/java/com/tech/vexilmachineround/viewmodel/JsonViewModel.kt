@@ -6,6 +6,7 @@ import com.tech.vexilmachineround.model.ResponseObject
 import com.tech.vexilmachineround.repository.JsonRepository
 import com.tech.vexilmachineround.utils.ApiResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,6 +22,7 @@ class JsonViewModel @Inject constructor(private val jsonRepository: JsonReposito
     fun loadJsonData() {
         viewModelScope.launch {
             _sampleResponseData.value = ApiResult.Loading
+            delay(3000)
             try {
                 val data = jsonRepository.getSampleData()
                 _sampleResponseData.value = ApiResult.Success(data)

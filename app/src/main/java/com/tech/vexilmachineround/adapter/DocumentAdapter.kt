@@ -14,6 +14,7 @@ import com.bumptech.glide.request.RequestListener
 import com.tech.vexilmachineround.R
 import com.tech.vexilmachineround.databinding.ItemDocumentBinding
 import com.tech.vexilmachineround.model.Document
+import com.tech.vexilmachineround.utils.AppUtils
 
 class DocumentAdapter : RecyclerView.Adapter<DocumentAdapter.DocumentViewHolder>() {
 
@@ -51,32 +52,11 @@ class DocumentAdapter : RecyclerView.Adapter<DocumentAdapter.DocumentViewHolder>
         fun bind(document: Document) {
             binding.tvDocumentType.text = document.docType
             binding.tvUploadedAt.text = document.uploadedAt
-            Glide.with(binding.root)
-                .load(document.fileUrl)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: com.bumptech.glide.request.target.Target<Drawable?>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        Log.e("GlideTest", "Load FAILED", e)
-                        return false // let Glide show error placeholder
-                    }
-
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: com.bumptech.glide.request.target.Target<Drawable?>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        Log.d("GlideTest", "Load SUCCESS from $dataSource")
-                        return false // let Glide set the image
-                    }
-                })
-                .placeholder(R.drawable.ic_placeholder)
-                .into(binding.ivDocument)
+            AppUtils.ImageUtils.loadIbbCoImage(
+                context = binding.root.context,
+                imageView = binding.ivDocument,
+                galleryUrl = document.fileUrl
+            )
         }
     }
 }

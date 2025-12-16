@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.tech.vexilmachineround.R
 import com.tech.vexilmachineround.databinding.FragmentKycBinding
 import com.tech.vexilmachineround.utils.ApiResult
+import com.tech.vexilmachineround.utils.AppUtils
 import com.tech.vexilmachineround.viewmodel.JsonViewModel
 import kotlinx.coroutines.launch
 
@@ -36,29 +37,40 @@ class K_Y_C : Fragment() {
         observeUIState()
     }
 
+    
     private fun observeUIState() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.sampleResponseData.collect { result ->
                     when(result){
+                        is ApiResult.Loading -> {
+                            binding.shimmerLayout.startShimmer()
+                            //binding.shimmerLayout.visibility = View.VISIBLE
+                        }
                         is ApiResult.Success ->{
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
                             val obj = result.data
                             binding.tvAadhaarNumber.text = obj.data.memberDetails.kyc.aadhaar.number
                             binding.tvPanNumber.text = obj.data.memberDetails.kyc.pan.number
-                            Glide.with(requireContext())
-                                .load(obj.data.memberDetails.kyc.aadhaar.imageFront)
-                                .placeholder(R.drawable.ic_placeholder)
-                                .into(binding.ivAadhaarFront)
 
-                            Glide.with(requireContext())
-                                .load(obj.data.memberDetails.kyc.aadhaar.imageBack)
-                                .placeholder(R.drawable.ic_placeholder)
-                                .into(binding.ivAadhaarBack)
+                            AppUtils.ImageUtils.loadIbbCoImage(
+                                context = requireContext(),
+                                imageView = binding.ivAadhaarFront,
+                                galleryUrl = obj.data.memberDetails.kyc.aadhaar.imageFront
+                            )
 
-                            Glide.with(requireContext())
-                                .load(obj.data.memberDetails.kyc.pan.image)
-                                .placeholder(R.drawable.ic_placeholder)
-                                .into(binding.ivPanImage)
+                            AppUtils.ImageUtils.loadIbbCoImage(
+                                context = requireContext(),
+                                imageView = binding.ivAadhaarBack,
+                                galleryUrl = obj.data.memberDetails.kyc.aadhaar.imageBack
+                            )
+
+                            AppUtils.ImageUtils.loadIbbCoImage(
+                                context = requireContext(),
+                                imageView = binding.ivPanImage,
+                                galleryUrl = obj.data.memberDetails.kyc.pan.image
+                            )
 
                             if (obj.data.memberDetails.kyc.aadhaar.verified){
                                 binding.chipAadhaarVerified.visibility = View.VISIBLE
@@ -78,8 +90,13 @@ class K_Y_C : Fragment() {
 
                         }
 
+                        is ApiResult.Error -> {
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
+                        }
                         else -> {
-
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
                         }
                     }
                 }

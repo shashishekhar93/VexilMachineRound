@@ -7,6 +7,11 @@
     android:fillViewport="true"
     android:background="@color/ultra_light_gray_background">
 
+    <com.tech.vexilmachineround.utils.ShimmerLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Not Available"
+                    android:text="NA"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     android:textColor="@color/purple_700"
                     android:textStyle="bold"
@@ -58,7 +63,7 @@
                     android:id="@+id/tvMemberId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Member ID: MID_000000"
+                    android:text="Member ID: NA"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                     android:textColor="?android:textColorSecondary"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +87,7 @@
                         android:background="@drawable/bg_chip"
                         android:paddingHorizontal="24dp"
                         android:paddingVertical="8dp"
-                        android:text="Individual"
+                        android:text="NA"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         android:textColor="@color/white" />
 
@@ -94,7 +99,7 @@
                         android:background="@drawable/bg_chip"
                         android:paddingHorizontal="24dp"
                         android:paddingVertical="8dp"
-                        android:text="Married"
+                        android:text="NA"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         android:textColor="@color/white" />
 
@@ -106,7 +111,7 @@
                         android:background="@drawable/bg_chip"
                         android:paddingHorizontal="24dp"
                         android:paddingVertical="8dp"
-                        android:text="Male"
+                        android:text="NA"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         android:textColor="@color/white" />
 
@@ -140,10 +145,11 @@
                         app:tint="?attr/colorPrimary" />
 
                     <TextView
+                        android:id="@+id/memberDob"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="05 Dec 1991"
+                        android:text="NA"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
                 </LinearLayout>
 
@@ -169,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="9876500132"
+                        android:text="NA"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
                 </LinearLayout>
 
@@ -198,11 +204,12 @@
                         android:layout_marginStart="16dp"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="xxxxx.v@gmail.com"
+                        android:text="NA"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.tech.vexilmachineround.utils.ShimmerLayout>
 </ScrollView>

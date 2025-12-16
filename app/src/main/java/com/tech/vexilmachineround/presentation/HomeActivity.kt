@@ -59,7 +59,7 @@ class HomeActivity : AppCompatActivity() {
                 viewModel.sampleResponseData.collect { result ->
                     when (result) {
                         is ApiResult.Loading -> {
-                            binding.progressBar.visibility = View.VISIBLE
+                            //binding.progressBar.visibility = View.VISIBLE
                         }
                         is ApiResult.Success -> {
                             binding.progressBar.visibility = View.GONE

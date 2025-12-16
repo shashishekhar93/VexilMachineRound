@@ -48,7 +48,13 @@ class VehicleInspection : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewmodel.sampleResponseData.collect { result ->
                     when (result) {
+                        is ApiResult.Loading -> {
+                            binding.shimmerLayout.startShimmer()
+                            //
+                        }
                         is ApiResult.Success -> {
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
                             val obj = result.data
                             binding.tvTypeValue.text = obj.data.vehicle.type
                             binding.tvMakeValue.text = obj.data.vehicle.make
@@ -57,13 +63,18 @@ class VehicleInspection : Fragment() {
                                 obj.data.vehicle.registrationNumber
                             binding.tvRegistrationDateValue.text = obj.data.vehicle.registrationDate
                             binding.tvStatusValue.text = obj.data.vehicle.inspection.status
-                            
+
                             // Submit the list to the adapter. 
                             // This will update the RecyclerView because we're now using the correct adapter instance.
                             adapter.submitList(obj.data.vehicle.inspection.images)
                         }
+                        is ApiResult.Error -> {
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
+                        }
                         else -> {
-
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
                         }
                     }
                 }

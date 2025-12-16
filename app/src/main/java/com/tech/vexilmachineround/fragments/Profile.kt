@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.tech.vexilmachineround.databinding.FragmentProfileBinding
 import com.tech.vexilmachineround.utils.ApiResult
 import com.tech.vexilmachineround.viewmodel.JsonViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class Profile : Fragment() {
@@ -39,9 +40,17 @@ class Profile : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.sampleResponseData.collect { result ->
                     when (result) {
+                        is ApiResult.Loading -> {
+                            binding.shimmerLayout.startShimmer()
+                            //binding.shimmerLayout.visibility = View.VISIBLE
+                        }
+
                         is ApiResult.Success -> {
-                            //
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
+
                             val obj = result.data
+                            binding.memberDob.text = obj.data.memberDetails.dob
                             binding.tvFullName.text = obj.data.memberDetails.fullName
                             binding.tvMemberId.text = obj.data.memberDetails.memberId
                             binding.tvPhone.text = obj.data.memberDetails.mobile
@@ -50,11 +59,16 @@ class Profile : Fragment() {
                             binding.tvType.text = obj.data.memberDetails.type
                             binding.maritalStatus.text = obj.data.memberDetails.maritalStatus
                             binding.tvGender.text = obj.data.memberDetails.gender
+                        }
 
-
+                        is ApiResult.Error -> {
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
                         }
 
                         else -> {
+                            binding.shimmerLayout.stopShimmer()
+                            //binding.shimmerLayout.visibility = View.GONE
                             // Handle other states if needed
                         }
                     }
