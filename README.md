@@ -49,12 +49,8 @@ This codebase demonstrates a strong understanding of modern Android development 
 - **Effective Dependency Injection**: Hilt is correctly implemented for providing the `JsonRepository` and managing the `ViewModel`'s lifecycle.
 - **Robust Permission Handling**: `PermissionManager` is a well-designed, reusable utility for handling runtime permissions.
 
-### Areas for Improvement:
+## Videos:
 
-- **RecyclerView Efficiency**: The current adapters use `notifyDataSetChanged()`, which is inefficient. Migrating to `ListAdapter` with `DiffUtil` would improve performance and enable animations.
-- **Dependency Injection of Adapters**: The `AdapterModule` provides `RecyclerView` adapters via Hilt. This is an unconventional pattern and should be removed. Adapters should be instantiated directly in the Fragments that use them.
-- **Redundant ViewModel Factory**: `JsonViewModelFactory` is not needed when using `@HiltViewModel`. It can be safely deleted.
-- **Hardcoded Strings**: Moving strings from adapter classes into `strings.xml` will improve maintainability and allow for internationalization.
 
 ## Images:
 <img width="1080" height="2400" alt="Screenshot_20251215_120245" src="https://github.com/user-attachments/assets/6212be72-0f6c-47f2-b5b7-4019942a1f98" />
