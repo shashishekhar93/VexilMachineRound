@@ -53,8 +53,8 @@ This codebase demonstrates a strong understanding of modern Android development 
 https://github.com/user-attachments/assets/833747e6-d8ab-442f-a78d-fab0d3748448
 
 ## Images:
-<img width="360" height="800" alt="Screenshot_20251215_120245" src="https://github.com/user-attachments/assets/6212be72-0f6c-47f2-b5b7-4019942a1f98" />
-<img width="360" height="800" alt="Screenshot_20251215_120154" src="https://github.com/user-attachments/assets/615d3bcd-4918-4f00-93a6-44ae335dc2cc" />
+<img width="270" height="600" alt="Screenshot_20251215_120245" src="https://github.com/user-attachments/assets/6212be72-0f6c-47f2-b5b7-4019942a1f98" />
+<img width="270" height="600" alt="Screenshot_20251215_120154" src="https://github.com/user-attachments/assets/615d3bcd-4918-4f00-93a6-44ae335dc2cc" />
 
 
 1.  Clone the repository.
